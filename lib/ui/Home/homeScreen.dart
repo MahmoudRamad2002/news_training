@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news/myThemData.dart';
 import 'package:news/ui/Categories/categories.dart';
 import 'package:news/ui/Home/home_drower.dart';
 
@@ -7,16 +8,22 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('News App'),
+    return Container(
+      decoration: BoxDecoration(
+        color: myThemData.whitcolor,
+        image: DecorationImage(
+            fit: BoxFit.cover, image: AssetImage('assets/images/pattern.png')),
       ),
-      drawer: Drawer(
-        child: HomeDrawer(),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          title: Text('News App'),
+        ),
+        drawer: Drawer(
+          child: HomeDrawer(),
+        ),
+        body: CatagoryWidget(),
       ),
-      body: Column(children: [
-        CatagoryWidget(),
-      ]),
     );
   }
 }

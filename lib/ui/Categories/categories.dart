@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:news/myThemData.dart';
+import 'package:news/ui/Categories/categoryItemWidged.dart';
+import 'package:news/ui/Categories/categoryModel.dart';
 
 class CatagoryWidget extends StatelessWidget {
-  const CatagoryWidget({super.key});
+  List<categoryModel> catagoryList = categoryModel.getCategoryList();
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(24),
+      height: MediaQuery.of(context).size.height,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'pick your category \n of interest',
@@ -17,12 +22,16 @@ class CatagoryWidget extends StatelessWidget {
               fontSize: 22,
             ),
           ),
-          GridView.builder(
+          SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+          Expanded(
+            child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, mainAxisSpacing: 18, crossAxisSpacing: 18),
-              itemBuilder: (_, index) => Container(
-                    child: Image.asset('assets/images/health.png'),
-                  ))
+              itemBuilder: (_, index) => categoryItemWedgit(
+                  categorymodel: catagoryList[index], index: index),
+              itemCount: catagoryList.length,
+            ),
+          )
         ],
       ),
     );
