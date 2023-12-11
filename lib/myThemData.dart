@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class myThemData {
   static const Color primarycolor = Color(0xFF39A552);
@@ -21,5 +22,23 @@ class myThemData {
           bottomLeft: Radius.circular(30),
           bottomRight: Radius.circular(30),
         ))),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      type: BottomNavigationBarType.shifting,
+      backgroundColor: primarycolor,
+      selectedItemColor: myThemData.primarycolor,
+      unselectedItemColor: myThemData.primarycolor,
+      selectedLabelStyle: GoogleFonts.quicksand(fontSize: 12),
+      unselectedLabelStyle: GoogleFonts.quicksand(fontSize: 12),
+    ),
+    textTheme: TextTheme(
+      titleSmall: GoogleFonts.elMessiri(
+          color: Color(0xFF242424), fontWeight: FontWeight.bold, fontSize: 30),
+      bodyLarge: TextStyle(
+          color: Color(0xFF242424), fontWeight: FontWeight.bold, fontSize: 30),
+      bodyMedium: TextStyle(
+          color: Color(0xFF242424), fontWeight: FontWeight.w400, fontSize: 24),
+      bodySmall: TextStyle(
+          color: Color(0xFF242424), fontWeight: FontWeight.w300, fontSize: 20),
+    ),
   );
 }

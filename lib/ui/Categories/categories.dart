@@ -5,6 +5,9 @@ import 'package:news/ui/Categories/categoryModel.dart';
 
 class CatagoryWidget extends StatelessWidget {
   List<categoryModel> catagoryList = categoryModel.getCategoryList();
+  Function onCategoryModelClicked;
+
+  CatagoryWidget({required this.onCategoryModelClicked});
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +30,13 @@ class CatagoryWidget extends StatelessWidget {
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, mainAxisSpacing: 18, crossAxisSpacing: 18),
-              itemBuilder: (_, index) => categoryItemWedgit(
-                  categorymodel: catagoryList[index], index: index),
+              itemBuilder: (context, index) => InkWell(
+                onTap: () {
+                  onCategoryModelClicked(index);
+                },
+                child: categoryItemWedgit(
+                    categorymodel: catagoryList[index], index: index),
+              ),
               itemCount: catagoryList.length,
             ),
           )
