@@ -9,9 +9,9 @@ class apiManger {
   static const String baseUrl = 'newsapi.org';
   static const String apikey = '263b8ef3b6cb41e1aa193c089088ca13';
 
-  static Future<SourceResponse> getSources() async {
-    var url =
-        Uri.https(baseUrl, '/v2/top-headlines/sources', {'apiKey': apikey});
+  static Future<SourceResponse> getSources(String categoryId) async {
+    var url = Uri.https(baseUrl, '/v2/top-headlines/sources',
+        {'apiKey': apikey, 'category': categoryId});
     try {
       var response = await http.get(url);
       var bodyString = response.body;
@@ -25,16 +25,13 @@ class apiManger {
 
   //https://newsapi.org/v2/everything?q=bitcoin&apiKey=263b8ef3b6cb41e1aa193c089088ca13
   static Future<NewsResponse> getNews(String sourceId) async {
-    var url = Uri.https(baseUrl, '/v2/everything?q=bitcoin&apiKey',
-        {'apiKey': apikey, 'sources': sourceId});
-    try {
-      var response = await http.get(url);
-      var bodyString = response.body;
-      var json = jsonDecode(bodyString);
-      var newsResponse = NewsResponse.fromJson(json);
-      return newsResponse;
-    } catch (e) {
-      throw e;
-    }
+    var url = Uri.https(
+        baseUrl, '/v2/everything', {'apiKey': apikey, 'sources': sourceId});
+
+    var response = await http.get(url);
+    var bodyString = response.body;
+    var json = jsonDecode(bodyString);
+    var newsResponse = NewsResponse.fromJson(json);
+    return newsResponse;
   }
 }

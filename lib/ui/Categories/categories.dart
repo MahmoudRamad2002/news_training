@@ -32,7 +32,7 @@ class CatagoryWidget extends StatelessWidget {
                   crossAxisCount: 2, mainAxisSpacing: 18, crossAxisSpacing: 18),
               itemBuilder: (context, index) => InkWell(
                 onTap: () {
-                  onCategoryModelClicked(index);
+                  onCategoryModelClicked(catagoryList[index]);
                 },
                 child: categoryItemWedgit(
                     categorymodel: catagoryList[index], index: index),

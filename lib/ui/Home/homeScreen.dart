@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:news/myThemData.dart';
+import 'package:news/settings/settingTab.dart';
 import 'package:news/ui/Categories/catedoriesDetails.dart';
 import 'package:news/ui/Categories/categories.dart';
+import 'package:news/ui/Categories/categoryModel.dart';
 import 'package:news/ui/Home/home_drower.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,18 +28,32 @@ class _HomeScreenState extends State<HomeScreen> {
             title: Text('News App'),
           ),
           drawer: Drawer(
-            child: HomeDrawer(),
+            child: HomeDrawer(
+              onDrowerItemclicked: onDrowerItemclicked,
+            ),
           ),
-          body: selectedCategory == null
-              ? CatagoryWidget(onCategoryModelClicked: onCategoryModelClicked)
-              : catagoriesDetails()),
+          body: selectedItemClicked == 2
+              ? settingTab()
+              : selectedIndex == null || selectedItemClicked == 1
+                  ? CatagoryWidget(
+                      onCategoryModelClicked: onCategoryModelClicked)
+                  : catagoriesDetails(
+                      CategoryMogel: selectedIndex!,
+                    )),
     );
   }
 
-  int? selectedCategory = null;
+  int selectedItemClicked = 0;
 
-  void onCategoryModelClicked(int index) {
-    selectedCategory = index;
+  void onDrowerItemclicked(int newSelectedItemClicked) {
+    selectedItemClicked = newSelectedItemClicked;
+    setState(() {});
+  }
+
+  categoryModel? selectedIndex = null;
+
+  void onCategoryModelClicked(categoryModel CategoryModel) {
+    selectedIndex = CategoryModel;
     setState(() {});
   }
 }

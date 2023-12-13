@@ -15,7 +15,7 @@ class categoryModel {
       categoryModel('assets/images/icons/sports.png', myThemData.redcolor,
           'sports', 'sports'),
       categoryModel('assets/images/icons/Politics.png',
-          myThemData.darkbluucolor, 'politics', 'politics'),
+          myThemData.darkbluucolor, 'general', 'General'),
       categoryModel('assets/images/icons/health.png', myThemData.pinkcolor,
           'health', 'health'),
       categoryModel('assets/images/icons/bussines.png', myThemData.browncolor,
@@ -24,6 +24,8 @@ class categoryModel {
           'environment', 'environment'),
       categoryModel('assets/images/icons/science.png', myThemData.yallowcolor,
           'science', 'science'),
+      categoryModel('assets/images/icons/sports.png', myThemData.redcolor,
+          'technology', 'Technology'),
     ];
   }
 }

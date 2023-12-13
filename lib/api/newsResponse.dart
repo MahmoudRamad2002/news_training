@@ -21,14 +21,14 @@ class NewsResponse {
     if (json['articles'] != null) {
       articles = [];
       json['articles'].forEach((v) {
-        articles?.add(Articles.fromJson(v));
+        articles?.add(News.fromJson(v));
       });
     }
   }
 
   String? status;
   num? totalResults;
-  List<Articles>? articles;
+  List<News>? articles;
   String? code;
   String? message;
 
@@ -54,8 +54,8 @@ class NewsResponse {
 /// publishedAt : "2023-11-29T12:00:00Z"
 /// content : "The prospect that US residents may soon be able to invest in bitcoin through their brokerage, as if it were a regular stock, has prompted a fresh round of hype in crypto circlesand a surge in crypto … [+2137 chars]"
 
-class Articles {
-  Articles({
+class News {
+  News({
     this.source,
     this.author,
     this.title,
@@ -66,7 +66,7 @@ class Articles {
     this.content,
   });
 
-  Articles.fromJson(dynamic json) {
+  News.fromJson(dynamic json) {
     source = json['source'] != null ? Source.fromJson(json['source']) : null;
     author = json['author'];
     title = json['title'];
