@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:news/myThemData.dart';
 import 'package:news/settings/settingTab.dart';
 import 'package:news/ui/Categories/catedoriesDetails.dart';
 import 'package:news/ui/Categories/categories.dart';
 import 'package:news/ui/Categories/categoryModel.dart';
 import 'package:news/ui/Home/home_drower.dart';
-
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
 
@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            title: Text('News App'),
+            title: Text(AppLocalizations.of(context)!.appTitle),
           ),
           drawer: Drawer(
             child: HomeDrawer(
@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           body: selectedItemClicked == 2
-              ? settingTab()
+              ? SettingsScreen()
               : selectedIndex == null || selectedItemClicked == 1
                   ? CatagoryWidget(
                       onCategoryModelClicked: onCategoryModelClicked)

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:news/myThemData.dart';
 import 'package:news/ui/Home/homeScreen.dart';
 import 'package:news/ui/SplashScreen/splash_screen.dart';
@@ -15,6 +17,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+        // locale: Locale('ar'),
+        title: 'Localizations Sample App',
+        localizationsDelegates: [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          Locale('en'), // English
+          Locale('ar'), //arabic
+        ],
         themeMode: ThemeMode.light,
         theme: myThemData.lightThem,
         initialRoute: SplashScreen.routeName,
