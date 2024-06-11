@@ -29,7 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           drawer: Drawer(
             child: HomeDrawer(
-              onDrowerItemclicked: onDrowerItemclicked,
+             onDrowerItemclicked: onDrowerItemclicked,
+
             ),
           ),
           body: selectedItemClicked == 2

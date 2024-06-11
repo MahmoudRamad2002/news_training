@@ -55,7 +55,7 @@ class _tabContainerState extends State<tabContainer> {
               var newsList = snapshot.data?.articles ?? [];
               return Expanded(
                   child: ListView.builder(
-                itemBuilder: (context, index) =>
+                   itemBuilder: (context, index) =>
                     newsItem(news: newsList[index]),
                 itemCount: newsList.length,
               ));

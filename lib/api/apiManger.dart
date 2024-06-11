@@ -5,6 +5,7 @@ import 'package:news/api/SourceResponse.dart';
 import 'package:news/api/newsResponse.dart';
 
 class apiManger {
+
   //https://newsapi.org/v2/top-headlines/sources?apiKey=263b8ef3b6cb41e1aa193c089088ca13
   static const String baseUrl = 'newsapi.org';
   static const String apikey = '263b8ef3b6cb41e1aa193c089088ca13';
